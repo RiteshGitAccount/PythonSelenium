@@ -1,0 +1,290 @@
+1681370561071	geckodriver	INFO	Listening on 127.0.0.1:58121
+1683620651440	geckodriver	INFO	Listening on 127.0.0.1:59696
+1683621133008	geckodriver	INFO	Listening on 127.0.0.1:60227
+1683621133512	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60228" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileqxpo3n"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683621133868	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683621133873	Marionette	INFO	Listening on port 60233
+Read port: 60233
+WebDriver BiDi listening on ws://127.0.0.1:60228
+1683621134010	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileqxpo3n\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60228/devtools/browser/7478bf8c-d860-4fde-9eac-645e33fc573c
+1683621138408	Marionette	INFO	Stopped listening on port 60233
+Dynamically enable window occlusion 1
+1683621139223	geckodriver	INFO	Listening on 127.0.0.1:60265
+1683621139741	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60266" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileGogrKR"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683621140145	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683621140151	Marionette	INFO	Listening on port 60272
+Read port: 60272
+WebDriver BiDi listening on ws://127.0.0.1:60266
+1683621140276	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileGogrKR\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60266/devtools/browser/726eceef-9176-4572-ba0f-b38af18f95ee
+1683621144811	Marionette	INFO	Stopped listening on port 60272
+Dynamically enable window occlusion 1
+1683621145633	geckodriver	INFO	Listening on 127.0.0.1:60307
+1683621146141	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60308" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofilelwdoe1"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683621146493	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683621146498	Marionette	INFO	Listening on port 60315
+Read port: 60315
+WebDriver BiDi listening on ws://127.0.0.1:60308
+1683621146639	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofilelwdoe1\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60308/devtools/browser/9a7e5720-7edd-41ae-96e1-da0a5d469094
+1683621158453	Marionette	INFO	Stopped listening on port 60315
+Dynamically enable window occlusion 1
+1683621159260	geckodriver	INFO	Listening on 127.0.0.1:60354
+1683621159756	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60355" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofiled06Oq1"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683621160151	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683621160157	Marionette	INFO	Listening on port 60361
+Read port: 60361
+WebDriver BiDi listening on ws://127.0.0.1:60355
+1683621160278	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofiled06Oq1\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60355/devtools/browser/78508672-dfde-4f49-991a-366934b933f0
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+1683621168013	Marionette	INFO	Stopped listening on port 60361
+Dynamically enable window occlusion 1
+1683621177057	geckodriver	INFO	Listening on 127.0.0.1:60404
+1683621177570	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60405" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileQVoPrH"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683621177941	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683621177946	Marionette	INFO	Listening on port 60411
+Read port: 60411
+WebDriver BiDi listening on ws://127.0.0.1:60405
+1683621178094	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: [D3D11] failed to get compositor device.
+[GFX1-]: Failed to initialize CompositorD3D11 for SWGL: FEATURE_FAILURE_D3D11_NO_DEVICE
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileQVoPrH\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60405/devtools/browser/e8498d9f-faa6-41db-ba5c-6b93550ec832
+1683621181922	Marionette	INFO	Stopped listening on port 60411
+Dynamically enable window occlusion 1
+1683621182584	geckodriver	INFO	Listening on 127.0.0.1:60442
+1683621183104	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60443" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofiler6kCFx"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683621183459	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683621183464	Marionette	INFO	Listening on port 60449
+Read port: 60449
+WebDriver BiDi listening on ws://127.0.0.1:60443
+1683621183608	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: [D3D11] failed to get compositor device.
+[GFX1-]: Failed to initialize CompositorD3D11 for SWGL: FEATURE_FAILURE_D3D11_NO_DEVICE
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofiler6kCFx\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60443/devtools/browser/ffeec81e-147a-44bb-9eb3-48118dd95f72
+1683621187323	Marionette	INFO	Stopped listening on port 60449
+Dynamically enable window occlusion 1
+1683621187978	geckodriver	INFO	Listening on 127.0.0.1:60483
+1683621188491	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60484" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofilefTjtud"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683621188840	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683621188845	Marionette	INFO	Listening on port 60490
+Read port: 60490
+WebDriver BiDi listening on ws://127.0.0.1:60484
+1683621188989	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: [D3D11] failed to get compositor device.
+[GFX1-]: Failed to initialize CompositorD3D11 for SWGL: FEATURE_FAILURE_D3D11_NO_DEVICE
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofilefTjtud\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60484/devtools/browser/bc7b100e-522b-4771-8324-9727911a2590
+1683621197894	Marionette	INFO	Stopped listening on port 60490
+Dynamically enable window occlusion 1
+1683621198568	geckodriver	INFO	Listening on 127.0.0.1:60528
+1683621199094	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "60529" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileFcDmk3"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683621199476	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683621199482	Marionette	INFO	Listening on port 60534
+Read port: 60534
+WebDriver BiDi listening on ws://127.0.0.1:60529
+1683621199675	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: [D3D11] failed to get compositor device.
+[GFX1-]: Failed to initialize CompositorD3D11 for SWGL: FEATURE_FAILURE_D3D11_NO_DEVICE
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileFcDmk3\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:60529/devtools/browser/d8c936d9-a2e6-4219-9acd-208ed9295f42
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+1683621204290	Marionette	INFO	Stopped listening on port 60534
+Dynamically enable window occlusion 1
+1683626072384	geckodriver	INFO	Listening on 127.0.0.1:63406
+1683626072916	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63407" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileif3gr0"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683626073698	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683626073705	Marionette	INFO	Listening on port 63414
+Read port: 63414
+WebDriver BiDi listening on ws://127.0.0.1:63407
+1683626073869	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: [D3D11] failed to get compositor device.
+[GFX1-]: Failed to initialize CompositorD3D11 for SWGL: FEATURE_FAILURE_D3D11_NO_DEVICE
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileif3gr0\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:63407/devtools/browser/fb3a1de8-b01c-46b5-baaa-d1a49fd753d4
+1683626077973	Marionette	INFO	Stopped listening on port 63414
+Dynamically enable window occlusion 1
+1683626078644	geckodriver	INFO	Listening on 127.0.0.1:63449
+1683626079155	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63450" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofile8ic6m8"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683626079531	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683626079538	Marionette	INFO	Listening on port 63455
+Read port: 63455
+WebDriver BiDi listening on ws://127.0.0.1:63450
+1683626079824	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: [D3D11] failed to get compositor device.
+[GFX1-]: Failed to initialize CompositorD3D11 for SWGL: FEATURE_FAILURE_D3D11_NO_DEVICE
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofile8ic6m8\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:63450/devtools/browser/e84a1fc5-ca23-4d69-b548-77b9a5fbeb7f
+1683626083694	Marionette	INFO	Stopped listening on port 63455
+Dynamically enable window occlusion 1
+1683626084349	geckodriver	INFO	Listening on 127.0.0.1:63487
+1683626084860	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63488" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileEt5mm2"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683626085218	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683626085223	Marionette	INFO	Listening on port 63494
+Read port: 63494
+WebDriver BiDi listening on ws://127.0.0.1:63488
+1683626085368	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: [D3D11] failed to get compositor device.
+[GFX1-]: Failed to initialize CompositorD3D11 for SWGL: FEATURE_FAILURE_D3D11_NO_DEVICE
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileEt5mm2\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:63488/devtools/browser/35e29fbe-6b66-476c-ac49-bfe1bde91212
+1683626094180	Marionette	INFO	Stopped listening on port 63494
+Dynamically enable window occlusion 1
+1683626094836	geckodriver	INFO	Listening on 127.0.0.1:63528
+1683626095358	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "63529" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofile9pZigc"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683626095768	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683626095773	Marionette	INFO	Listening on port 63536
+Read port: 63536
+WebDriver BiDi listening on ws://127.0.0.1:63529
+1683626095932	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: [D3D11] failed to get compositor device.
+[GFX1-]: Failed to initialize CompositorD3D11 for SWGL: FEATURE_FAILURE_D3D11_NO_DEVICE
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofile9pZigc\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:63529/devtools/browser/0923538c-338b-4eea-b8da-4333a29fdc4e
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+1683626101546	Marionette	INFO	Stopped listening on port 63536
+Dynamically enable window occlusion 1
+1683632851666	geckodriver	INFO	Listening on 127.0.0.1:57395
+1683632852193	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57396" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofilebYmTmN"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683632852786	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683632852792	Marionette	INFO	Listening on port 57402
+Read port: 57402
+WebDriver BiDi listening on ws://127.0.0.1:57396
+1683632852917	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofilebYmTmN\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:57396/devtools/browser/9bc3862a-8945-4a3c-aa4f-d8272a741ab3
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+1683632861477	Marionette	INFO	Stopped listening on port 57402
+Dynamically enable window occlusion 1
+1683633843668	geckodriver	INFO	Listening on 127.0.0.1:57951
+1683633844190	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57952" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileroXJW9"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683633844550	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683633844556	Marionette	INFO	Listening on port 57957
+Read port: 57957
+WebDriver BiDi listening on ws://127.0.0.1:57952
+1683633844701	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[Parent 30468, IPC I/O Parent] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:583
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: [D3D11] failed to get compositor device.
+[GFX1-]: Failed to initialize CompositorD3D11 for SWGL: FEATURE_FAILURE_D3D11_NO_DEVICE
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofileroXJW9\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:57952/devtools/browser/1d5c1bc4-a00a-464e-b25d-29ea169c28bc
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+1683633848744	Marionette	INFO	Stopped listening on port 57957
+Dynamically enable window occlusion 1
+1683807053566	geckodriver	INFO	Listening on 127.0.0.1:56087
+1683807054096	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56088" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofilefaBk40"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683807055107	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683807055113	Marionette	INFO	Listening on port 56094
+Read port: 56094
+WebDriver BiDi listening on ws://127.0.0.1:56088
+1683807055303	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Fallback WR to SW-WR + D3D11
+[GFX1-]: Failed to initialize GPU process
+[GFX1-]: [D3D11] failed to get compositor device.
+[GFX1-]: Failed to initialize CompositorD3D11 for SWGL: FEATURE_FAILURE_D3D11_NO_DEVICE
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\RITESH~1.KUM\\AppData\\Local\\Temp\\rust_mozprofilefaBk40\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:56088/devtools/browser/85bdcad5-3ed4-4d63-bc6b-ad51fe7f0e8d
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.jsm, line 58: Error: Can't find profile directory.
+1683807059444	Marionette	INFO	Stopped listening on port 56094
+Dynamically enable window occlusion 1
