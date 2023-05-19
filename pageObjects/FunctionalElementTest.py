@@ -91,6 +91,10 @@ class FunctionalTesting:
     number = (By.XPATH, "//input[@type='number']")
     numberValue = (By.TAG_NAME, "input")
 
+    #Drag and Drop using Javascript
+    source = '#column-a'
+    target = '#column-b'
+
 
     def InputNumbers(self):
         self.driver.find_element(*FunctionalTesting.input).click()
@@ -355,3 +359,19 @@ class FunctionalTesting:
 
     def ClickAddRemoveButton(self):
         return self.driver.find_element(*FunctionalTesting.clickAddRemoveButton).click()
+
+    def test_drag_and_drop_js(self):
+        file = cwd.split("tests")
+        fname = file[0] + "Resources\\drag_and_drop_helper.js"
+        print(fname)
+        with open(fname, 'r') as js_file:
+            line = js_file.readline()
+            script = ''
+            while line:
+                script += line
+                line = js_file.readline()
+
+        driver.execute_script(script + "$('"+ source +"').simulateDragDrop({ dropTarget: '"+target+"'});")
+        time.sleep(2)
+
+        print("Done")
