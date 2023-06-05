@@ -1,0 +1,6 @@
+pytest
+selenium
+openpyxl
+chromedriver_autoinstaller
+allure-pytest
+pytest-ordering
