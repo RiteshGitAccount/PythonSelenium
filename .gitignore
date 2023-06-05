@@ -1,1 +1,5 @@
 .idea
+.pytest_cache
+a_report
+*__pycache__
+automation.log

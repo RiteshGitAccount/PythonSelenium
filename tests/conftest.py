@@ -1,12 +1,7 @@
-import os
 import platform
 import shutil
 from pathlib import Path
-from typing import Optional, Callable, Any
-
-import allure
 import pytest
-from _pytest.fixtures import SubRequest
 from selenium import webdriver
 from utilities.WebDriverFactory import WebDriverFactory
 
