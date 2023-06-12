@@ -9,12 +9,10 @@ from utilities.BaseClass import BaseClass
 
 @pytest.mark.usefixtures("setup")
 @allure.epic("Epic 1")
-@allure.story("Story 1")
 @allure.feature("Feature 1")
-@allure.id("id 1")
+@allure.story("Story 1")
 @allure.tag("tag 1")
 @allure.description("desc 1")
-@allure.label("label 1")
 @allure.severity(allure.severity_level.NORMAL)
 class Test(unittest.TestCase):
     @pytest.fixture(autouse=True)
@@ -32,6 +30,7 @@ class Test(unittest.TestCase):
         # self.base.load_url(self.base.write_excel_data("data", "a5", "demo data"))
         self.fun.InputNumbers()
 
+    @allure.id('2')
     @allure.title("Check severity level - NORMAL")
     @allure.tag("Test level tag")
     @allure.severity(allure.severity_level.NORMAL)
@@ -39,6 +38,7 @@ class Test(unittest.TestCase):
         # self.base.load_url(self.base.env_data["url2"])
         # self.base.load_url(self.base.read_excel_data("data", "a3"))
         self.fun.InputNumbers()
+        assert 2 == 3
 
     @allure.title("Check severity level - BLOCKER")
     @allure.tag("Test level tag")
