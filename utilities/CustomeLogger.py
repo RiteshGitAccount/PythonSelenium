@@ -6,8 +6,6 @@ def custom_logger(logLevel=logging.DEBUG):
     logger_name = inspect.stack()[1][3]
     logger = logging.getLogger(logger_name)
 
-    # logger.setLevel(logging.DEBUG)
-
     file_handler = logging.FileHandler("automation.log", mode="a")
     file_handler.setLevel(logLevel)
 

@@ -1,5 +1,5 @@
 from utilities.BaseClass import BaseClass
-from page_objects import FunctionalPageObjects
+from page_objects.FunctionalPageObjects import FunctionalPageObjects
 
 
 class FunctionalPageFunctions(BaseClass):
@@ -7,9 +7,13 @@ class FunctionalPageFunctions(BaseClass):
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
-        self.fun_obj = FunctionalPageObjects
+        self.fun_obj = FunctionalPageObjects()
 
     def InputNumbers(self):
+        self.print_log("demo log",log_type="error")
+        self.print_log("demo log",log_type="info")
+        self.print_log("demo log",log_type="warn")
+        self.print_log("demo log",log_type="debug")
         self.wait_for_element_visibility("Inputs", locator_type="link", timeout=5, poll_frequency=1)
         self.click_element("Inputs", locator_type="link")
         # self.wait_for_element_invisibility("Inputs", locator_type="link")

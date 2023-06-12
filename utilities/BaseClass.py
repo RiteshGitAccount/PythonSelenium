@@ -9,14 +9,30 @@ from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import utilities.CustomeLogger as cl
+from utilities.CustomeLogger import custom_logger
+from utilities.ExcelReader import read_excel_data, write_excel_data
 
 
 class BaseClass:
-    log = cl.custom_logger(logging.DEBUG)
+    log = custom_logger(logging.DEBUG)
+    data_excel_file_path = None
+    env_file_path = None
+    env_data = None
+    conf_file_path = None
+    conf_data = None
 
     def __init__(self, driver):
         self.driver = driver
+        self.input_data = None
+
+    def load_url(self, urls):
+        self.driver.get(urls)
+
+    def read_excel_data(self, sheet_name, col_row):
+        return read_excel_data(self.data_excel_file_path, sheet_name, col_row)
+
+    def write_excel_data(self, sheet_name, col_row, data):
+        return write_excel_data(self.data_excel_file_path, sheet_name, col_row, data)
 
     def print_log(self, print_statement, log_type="info"):
         if log_type == "info":
@@ -68,7 +84,7 @@ class BaseClass:
         elif locator_type == "par_link" or locator_type == "par_link_text":
             return By.PARTIAL_LINK_TEXT
         else:
-            self.print_log(f"Locator type {locator_type} not correct/supported", log_type="error")
+            self.print_log(f"Locator type- '{locator_type}' not correct/supported", log_type="error")
             return False
 
     def get_element(self, locator, locator_type="xpath"):
@@ -78,7 +94,7 @@ class BaseClass:
             element = self.driver.find_element(by_type, locator)
         except:
             self.screenshots(f"Element issue", allure_name="Element issue")
-            self.print_log(f"Element not fount with locator: {locator} and locator_type: {locator_type}")
+            self.print_log(f"Element not fount with locator: '{locator}' and locator_type: '{locator_type}'",log_type="error")
         assert element is not None
         return element
 
@@ -94,7 +110,7 @@ class BaseClass:
         except:
             self.screenshots(f"Element not visible", allure_name="Element not visible")
             self.print_log(
-                f"Element not appeared on the web page with locator: {locator} - locator_type: {locator_type} within {timeout} seconds",
+                f"Element not appeared on the web page with locator: '{locator}' - locator_type: '{locator_type}' within '{timeout}' seconds",
                 log_type="error")
         assert element is not None
 
@@ -108,7 +124,7 @@ class BaseClass:
         except:
             self.screenshots(f"Element is visible", allure_name="Element is visible")
             self.print_log(
-                f"Element is still visible on the web page with locator: {locator} - locator_type: {locator_type} within {timeout} seconds",
+                f"Element is still visible on the web page with locator: '{locator}' - locator_type: '{locator_type}' within '{timeout}' seconds",
                 log_type="error")
         assert element is True
 
@@ -120,7 +136,7 @@ class BaseClass:
                 assert element is not None
                 element.click()
         except:
-            self.print_log(f"Can not click on the element with locator: {locator} - locator_type: {locator_type}")
+            self.print_log(f"Can not click on the element with locator: '{locator}' - locator_type: '{locator_type}'")
             print_stack()
             assert element is not None
 
@@ -133,9 +149,6 @@ class BaseClass:
                 element.clear()
                 element.send_keys(data)
         except:
-            self.print_log(f"Can not click on the element with locator: {locator} - locator_type: {locator_type}")
+            self.print_log(f"Can not click on the element with locator: '{locator}' - locator_type: '{locator_type}'")
             print_stack()
             assert element is not None
-
-
-

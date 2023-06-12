@@ -4,55 +4,59 @@ import allure
 import pytest
 
 from page_functions.FunctionalPageFunctions import FunctionalPageFunctions
+from utilities.BaseClass import BaseClass
 
 
+@pytest.mark.usefixtures("setup")
 @allure.epic("Epic 1")
 @allure.story("Story 1")
 @allure.feature("Feature 1")
-@allure.title("Title 1")
 @allure.id("id 1")
 @allure.tag("tag 1")
 @allure.description("desc 1")
 @allure.label("label 1")
 @allure.severity(allure.severity_level.NORMAL)
-@pytest.mark.usefixtures("setup")
 class Test(unittest.TestCase):
     @pytest.fixture(autouse=True)
     def classSetup(self, setup):
         self.fun = FunctionalPageFunctions(self.driver)
+        self.base = BaseClass(self.driver)
 
     # @pytest.mark.run(order=1)
     @allure.title("Check severity level - CRITICAL")
+    @allure.tag("Test level tag")
     @allure.severity(allure.severity_level.CRITICAL)
     def test_critical(self):
-        self.driver.implicitly_wait(5)
+        # self.base.load_url(self.base.env_data["url"])
+        # self.base.load_url(self.base.read_excel_data("data", "a2"))
+        # self.base.load_url(self.base.write_excel_data("data", "a5", "demo data"))
         self.fun.InputNumbers()
-        # verifyText = self.fun.InputNumbers()
-        # assert "5" in verifyText
 
-    # @allure.title("Check severity level - NORMAL")
-    # @allure.severity(allure.severity_level.NORMAL)
-    # def test_normal(self):
-    #     self.driver.implicitly_wait(5)
-    #     self.fun.InputNumbers()
-    #
-    # @allure.title("Check severity level - BLOCKER")
-    # @allure.severity(allure.severity_level.BLOCKER)
-    # def test_blocker(self):
-    #     self.driver.implicitly_wait(5)
-    #     self.fun.InputNumbers()
-    #
-    # @allure.title("Check severity level - TRIVIAL")
-    # @allure.severity(allure.severity_level.TRIVIAL)
-    # def test_trivial(self):
-    #     self.driver.implicitly_wait(5)
-    #     self.fun.InputNumbers()
-    #
-    # @allure.title("Check severity level - MINOR")
-    # @allure.severity(allure.severity_level.MINOR)
-    # def test_minor(self):
-    #     self.driver.implicitly_wait(5)
-    #     self.fun.InputNumbers()
+    @allure.title("Check severity level - NORMAL")
+    @allure.tag("Test level tag")
+    @allure.severity(allure.severity_level.NORMAL)
+    def test_normal(self):
+        # self.base.load_url(self.base.env_data["url2"])
+        # self.base.load_url(self.base.read_excel_data("data", "a3"))
+        self.fun.InputNumbers()
+
+    @allure.title("Check severity level - BLOCKER")
+    @allure.tag("Test level tag")
+    @allure.severity(allure.severity_level.BLOCKER)
+    def test_blocker(self):
+        self.fun.InputNumbers()
+
+    @allure.title("Check severity level - TRIVIAL")
+    @allure.tag("Test level tag")
+    @allure.severity(allure.severity_level.TRIVIAL)
+    def test_trivial(self):
+        self.fun.InputNumbers()
+
+    @allure.title("Check severity level - MINOR")
+    @allure.tag("Test level tag")
+    @allure.severity(allure.severity_level.MINOR)
+    def test_minor(self):
+        self.fun.InputNumbers()
 
     # def test_Hover(self):
     #     functionalTesting = FunctionalTesting(self.driver)

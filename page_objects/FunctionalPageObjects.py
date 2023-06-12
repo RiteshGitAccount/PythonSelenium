@@ -1,6 +1,3 @@
-from selenium.webdriver.common.by import By
-
-
 class FunctionalPageObjects:
     clickABTesting = "//a[normalize-space()='A/B Testing']"
     getTextABTesting = "/html[1]/body[1]/div[2]/div[1]/div[1]/p[1]"

@@ -1,5 +1,6 @@
 .idea
 .pytest_cache
-a_report
+allure_report
 *__pycache__
 automation.log
+screenshots

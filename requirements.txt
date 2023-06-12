@@ -1,6 +1,7 @@
 pytest
 selenium
-openpyxl
 chromedriver_autoinstaller
 allure-pytest
+openpyxl
 pytest-ordering
+pytest-xdist
