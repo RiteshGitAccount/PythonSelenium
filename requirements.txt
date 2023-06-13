@@ -1,0 +1,7 @@
+pytest
+selenium
+chromedriver_autoinstaller # For downloading chrome driver as per local system installed version
+allure-pytest # For allure framework and reporting
+openpyxl # For handling Excel files
+pytest-ordering # For defining order of the test cases
+pytest-xdist # For parallel execution

@@ -1,0 +1,6 @@
+.idea
+.pytest_cache
+allure_report
+*__pycache__
+automation.log
+screenshots
