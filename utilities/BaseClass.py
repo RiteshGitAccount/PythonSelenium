@@ -14,16 +14,19 @@ from utilities.ExcelReader import read_excel_data, write_excel_data
 
 
 class BaseClass:
+    """
+    This class is used for defining generic functions which can be used across the framework
+    for better coverage and ease of operations
+    """
     log = custom_logger(logging.DEBUG)
-    data_excel_file_path = None
-    env_file_path = None
-    env_data = None
-    conf_file_path = None
-    conf_data = None
+    data_excel_file_path = None  # This variable is used for storing the Excel file path
+    env_file_path = None  # This variable is used for storing the environment.properties file path
+    env_data = None  # This variable is used for storing environment.properties file details in dictionary
+    conf_file_path = None  # This variable is used for storing the config.json file path
+    conf_data = None  # This variable is used for storing config.json file details in dictionary
 
     def __init__(self, driver):
         self.driver = driver
-        self.input_data = None
 
     def load_url(self, urls):
         """

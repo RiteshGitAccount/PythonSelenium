@@ -6,11 +6,15 @@ import pytest
 from page_functions.FunctionalPageFunctions import FunctionalPageFunctions
 from utilities.BaseClass import BaseClass
 
+"""
+This is demo file once finalized will get better understanding on each attribute defined in test case
+"""
+
 
 @pytest.mark.usefixtures("setup")
 @allure.epic("Epic_1")
 @allure.feature("Feature_1")
-@allure.story("Story_")
+@allure.story("Story_1")
 @allure.tag("tag 1")
 @allure.description("desc 1")
 @allure.severity(allure.severity_level.NORMAL)
@@ -29,7 +33,6 @@ class Test(unittest.TestCase):
         # self.base.load_url(self.base.read_excel_data("data", "a2"))
         # self.base.load_url(self.base.write_excel_data("data", "a5", "demo data"))
         self.fun.InputNumbers()
-        assert 2 == 3
 
     @allure.title("Check severity level - NORMAL")
     @allure.tag("Test level tag")
@@ -41,7 +44,6 @@ class Test(unittest.TestCase):
         # self.base.load_url(self.base.env_data["url2"])
         # self.base.load_url(self.base.read_excel_data("data", "a3"))
         self.fun.InputNumbers()
-        assert 2 == 3
 
     @allure.title("Check severity level - BLOCKER")
     @allure.tag("Test level tag")
@@ -49,18 +51,18 @@ class Test(unittest.TestCase):
     def test_blocker(self):
         self.fun.InputNumbers()
 
-    @allure.title("Check severity level - TRIVIAL")
-    @allure.tag("Test level tag")
-    @allure.severity(allure.severity_level.TRIVIAL)
-    def test_trivial(self):
-        self.fun.InputNumbers()
-
-    @allure.title("Check severity level - MINOR")
-    @allure.tag("Test level tag")
-    @allure.severity(allure.severity_level.MINOR)
-    def test_minor(self):
-        self.fun.InputNumbers()
-        assert 2 == 3
+    # @allure.title("Check severity level - TRIVIAL")
+    # @allure.tag("Test level tag")
+    # @allure.severity(allure.severity_level.TRIVIAL)
+    # def test_trivial(self):
+    #     self.fun.InputNumbers()
+    #
+    # @allure.title("Check severity level - MINOR")
+    # @allure.tag("Test level tag")
+    # @allure.severity(allure.severity_level.MINOR)
+    # def test_minor(self):
+    #     self.fun.InputNumbers()
+    #     assert 2 == 3
 
     #
     # def test_Hover(self):

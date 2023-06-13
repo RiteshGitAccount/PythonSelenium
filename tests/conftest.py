@@ -12,6 +12,12 @@ driver = None
 
 
 def pytest_addoption(parser):
+    """
+    This is used for getting the command line passed attribute for test execution
+    e.g. browser name - on which browser test need to be executed
+    :param parser:
+    :return:
+    """
     parser.addoption("--browser_name", action="store", default="chrome")
 
 
