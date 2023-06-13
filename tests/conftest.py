@@ -17,6 +17,13 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope="session", autouse=True)
 def one_time_setup(request):
+    """
+    This will perform pre-setup action for executing the test cases like:-
+    assigning and loading the Excel data, json data, properties data files.
+    And post all test execution will add the environment.properties with details required for allure report
+    :param request:
+    :return:
+    """
     BaseClass.data_excel_file_path = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "..", "resources/data.xlsx"))
     BaseClass.env_file_path = os.path.abspath(
@@ -43,6 +50,13 @@ def one_time_setup(request):
 
 @pytest.fixture(scope="function")
 def setup(one_time_setup, request):
+    """
+    This will initialize the driver instances and load the requested url
+    And post all test execution, closes all associated windows and ends the WebDriver session gracefully.
+    :param one_time_setup:
+    :param request:
+    :return:
+    """
     global driver
     browser_name = request.config.getoption("browser_name")
 
@@ -62,4 +76,4 @@ def setup(one_time_setup, request):
 
     yield driver
 
-    driver.close()
+    driver.quit()

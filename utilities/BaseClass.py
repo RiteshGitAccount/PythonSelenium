@@ -26,15 +26,39 @@ class BaseClass:
         self.input_data = None
 
     def load_url(self, urls):
+        """
+        This will load the requested URL on browser
+        :param urls:
+        :return:
+        """
         self.driver.get(urls)
 
     def read_excel_data(self, sheet_name, col_row):
+        """
+        This will return the requested Excel cell value from provided sheet name
+        :param sheet_name:
+        :param col_row:
+        :return:
+        """
         return read_excel_data(self.data_excel_file_path, sheet_name, col_row)
 
     def write_excel_data(self, sheet_name, col_row, data):
+        """
+        This will write the data to the requested Excel cell in provided sheet
+        :param sheet_name:
+        :param col_row:
+        :param data:
+        :return:
+        """
         return write_excel_data(self.data_excel_file_path, sheet_name, col_row, data)
 
     def print_log(self, print_statement, log_type="info"):
+        """
+        This will print the log on console and in log file with provided log type respectively
+        :param print_statement:
+        :param log_type:
+        :return:
+        """
         if log_type == "info":
             self.log.info(print_statement)
         elif log_type == "warn":
@@ -46,6 +70,13 @@ class BaseClass:
         print(print_statement)
 
     def screenshots(self, result_message, allure_name="Screenshot"):
+        """
+        This will take screenshot of web page displayed and attach the same to allure report and
+        add it in screenshots folder
+        :param result_message:
+        :param allure_name:
+        :return:
+        """
         allure.attach(self.driver.get_screenshot_as_png(), name=allure_name, attachment_type=AttachmentType.PNG)
 
         file_name = result_message + "-" + str(round(time.time() * 1000)) + ".png"
@@ -88,17 +119,33 @@ class BaseClass:
             return False
 
     def get_element(self, locator, locator_type="xpath"):
+        """
+        This will return the interactive webdrive element reference for performing different actions on the same
+        :param locator:
+        :param locator_type:
+        :return:
+        """
         element = None
         try:
             by_type = self.get_by_type(locator_type)
             element = self.driver.find_element(by_type, locator)
         except:
             self.screenshots(f"Element issue", allure_name="Element issue")
-            self.print_log(f"Element not fount with locator: '{locator}' and locator_type: '{locator_type}'",log_type="error")
+            self.print_log(f"Element not fount with locator: '{locator}' and locator_type: '{locator_type}'",
+                           log_type="error")
         assert element is not None
         return element
 
     def wait_for_element_visibility(self, locator, locator_type="xpath", timeout=10, poll_frequency=1):
+        """
+        This will wait for requested element to be visible on screen for
+        defined time with interval check of 1 sec as default
+        :param locator:
+        :param locator_type:
+        :param timeout:
+        :param poll_frequency:
+        :return:
+        """
         element = None
         try:
             by_type = self.get_by_type(locator_type)
@@ -115,6 +162,15 @@ class BaseClass:
         assert element is not None
 
     def wait_for_element_invisibility(self, locator, locator_type="xpath", timeout=10, poll_frequency=1):
+        """
+        This will wait for requested element to be invisible on screen for
+        defined time with interval check of 1 sec as default
+        :param locator:
+        :param locator_type:
+        :param timeout:
+        :param poll_frequency:
+        :return:
+        """
         element = None
         try:
             by_type = self.get_by_type(locator_type)
@@ -129,6 +185,12 @@ class BaseClass:
         assert element is True
 
     def click_element(self, locator, locator_type="xpath"):
+        """
+        This will click on request element
+        :param locator:
+        :param locator_type:
+        :return:
+        """
         element = None
         try:
             if locator:
@@ -141,6 +203,13 @@ class BaseClass:
             assert element is not None
 
     def send_text(self, data, locator, locator_type="xpath"):
+        """
+        This will send/set the provided data in the requested text field on screen
+        :param data:
+        :param locator:
+        :param locator_type:
+        :return:
+        """
         element = None
         try:
             if locator:

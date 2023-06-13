@@ -3,6 +3,11 @@ import logging
 
 
 def custom_logger(logLevel=logging.DEBUG):
+    """
+    This will create the log file with detailed log of the execution performed with log level provided
+    :param logLevel:
+    :return:
+    """
     logger_name = inspect.stack()[1][3]
     logger = logging.getLogger(logger_name)
 

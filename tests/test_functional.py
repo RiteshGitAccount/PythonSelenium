@@ -8,9 +8,9 @@ from utilities.BaseClass import BaseClass
 
 
 @pytest.mark.usefixtures("setup")
-@allure.epic("Epic 1")
-@allure.feature("Feature 1")
-@allure.story("Story 1")
+@allure.epic("Epic_1")
+@allure.feature("Feature_1")
+@allure.story("Story_")
 @allure.tag("tag 1")
 @allure.description("desc 1")
 @allure.severity(allure.severity_level.NORMAL)
@@ -29,10 +29,13 @@ class Test(unittest.TestCase):
         # self.base.load_url(self.base.read_excel_data("data", "a2"))
         # self.base.load_url(self.base.write_excel_data("data", "a5", "demo data"))
         self.fun.InputNumbers()
+        assert 2 == 3
 
-    @allure.id('2')
     @allure.title("Check severity level - NORMAL")
     @allure.tag("Test level tag")
+    @allure.epic("Epic_2")
+    @allure.feature("Feature_2")
+    @allure.story("Story_2")
     @allure.severity(allure.severity_level.NORMAL)
     def test_normal(self):
         # self.base.load_url(self.base.env_data["url2"])
@@ -57,7 +60,9 @@ class Test(unittest.TestCase):
     @allure.severity(allure.severity_level.MINOR)
     def test_minor(self):
         self.fun.InputNumbers()
+        assert 2 == 3
 
+    #
     # def test_Hover(self):
     #     functionalTesting = FunctionalTesting(self.driver)
     #     self.driver.implicitly_wait(5)
