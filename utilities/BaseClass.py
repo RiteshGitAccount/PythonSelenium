@@ -62,10 +62,9 @@ class BaseClass:
         :param log_type:
         :return:
         """
+
         if log_type == "info":
             self.log.info(print_statement)
-        elif log_type == "warn":
-            self.log.warn(print_statement)
         elif log_type == "debug":
             self.log.debug(print_statement)
         elif log_type == "error":
@@ -123,7 +122,7 @@ class BaseClass:
 
     def get_element(self, locator, locator_type="xpath"):
         """
-        This will return the interactive webdrive element reference for performing different actions on the same
+        This will return the interactive webDrive element reference for performing different actions on the same
         :param locator:
         :param locator_type:
         :return:
