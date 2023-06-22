@@ -74,7 +74,7 @@ def setup(one_time_setup, request):
     elif browser_name == "IE":
         print("IE driver")
 
-    driver.get(BaseClass.env_data["url"])
+    #sdriver.get(BaseClass.env_data["url"])
     # driver.get(BaseClass.conf_data['sit']['url'])
 
     if request.cls is not None:
