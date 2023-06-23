@@ -1,6 +1,8 @@
 class FunctionalPageObjects:
-    clickABTesting = "//a[normalize-space()='A/B Testing']"
-    getTextABTesting = "/html[1]/body[1]/div[2]/div[1]/div[1]/p[1]"
+    clickABTesting = "xpath://a[normalize-space()='A/B Testing']"
+    getTextABTesting = "xpath:/html[1]/body[1]/div[2]/div[1]/div[1]/p[1]"
+
+
     clickAddRemoveButton = "Add/Remove Elements"
     clickAddElementButton = "//button[@onclick='addElement()']"
     verifyButtonPresent = "//button[@class='added-manually']"

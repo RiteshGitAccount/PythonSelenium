@@ -12,12 +12,12 @@ class Test(unittest.TestCase):
 
     @pytest.mark.p2
     def test_critical(self):
-        self.fun.InputNumbers()
+        self.fun.input_numbers()
 
     @pytest.mark.p1
     def test_normal(self):
-        self.fun.InputNumbers()
+        self.fun.input_numbers()
 
     @pytest.mark.p1
     def test_blocker(self):
-        self.fun.InputNumbers()
+        self.fun.input_numbers()

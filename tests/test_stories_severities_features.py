@@ -33,26 +33,26 @@ class Test(unittest.TestCase):
         self.base.print_log("error log", log_type="error")
         self.base.print_log("info log", log_type="info")
         self.base.print_log("debug log", log_type="debug")
-        self.fun.InputNumbers()
+        self.fun.input_numbers()
 
     @allure.title("Check severity level - NORMAL")
     @allure.story("Story 2")
     @allure.severity(allure.severity_level.NORMAL)
     def test_normal(self):
-        self.fun.InputNumbers()
+        self.fun.input_numbers()
 
     @allure.title("Check severity level - BLOCKER")
     @allure.feature("Feature 2")
     @allure.severity(allure.severity_level.BLOCKER)
     def test_blocker(self):
-        self.fun.InputNumbers()
+        self.fun.input_numbers()
 
     @allure.title("Check severity level - TRIVIAL")
     @allure.severity(allure.severity_level.TRIVIAL)
     def test_trivial(self):
-        self.fun.InputNumbers()
+        self.fun.input_numbers()
 
     @allure.title("Check severity level - MINOR")
     @allure.severity(allure.severity_level.MINOR)
     def test_minor(self):
-        self.fun.InputNumbers()
+        self.fun.input_numbers()

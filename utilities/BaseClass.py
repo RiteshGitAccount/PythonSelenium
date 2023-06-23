@@ -120,106 +120,104 @@ class BaseClass:
             self.print_log(f"Locator type- '{locator_type}' not correct/supported", log_type="error")
             return False
 
-    def get_element(self, locator, locator_type="xpath"):
+    def get_element(self, locator):
         """
         This will return the interactive webDrive element reference for performing different actions on the same
         :param locator:
-        :param locator_type:
         :return:
         """
         element = None
+        locator = locator.split(":")
         try:
-            by_type = self.get_by_type(locator_type)
-            element = self.driver.find_element(by_type, locator)
+            by_type = self.get_by_type(locator[0])
+            element = self.driver.find_element(by_type, locator[1])
         except:
             self.screenshots(f"Element issue", allure_name="Element issue")
-            self.print_log(f"Element not fount with locator: '{locator}' and locator_type: '{locator_type}'",
+            self.print_log(f"Element not fount with locator: '{locator[1]}' and locator_type: '{locator[0]}'",
                            log_type="error")
         assert element is not None
         return element
 
-    def wait_for_element_visibility(self, locator, locator_type="xpath", timeout=10, poll_frequency=1):
+    def wait_for_element_visibility(self, locator, timeout=10, poll_frequency=1):
         """
         This will wait for requested element to be visible on screen for
         defined time with interval check of 1 sec as default
         :param locator:
-        :param locator_type:
         :param timeout:
         :param poll_frequency:
         :return:
         """
         element = None
+        locator = locator.split(":")
         try:
-            by_type = self.get_by_type(locator_type)
+            by_type = self.get_by_type(locator[0])
             wait = WebDriverWait(self.driver, timeout=timeout,
                                  poll_frequency=poll_frequency,
                                  ignored_exceptions=[NoSuchElementException, ElementNotVisibleException,
                                                      ElementNotSelectableException])
-            element = wait.until(EC.visibility_of_element_located((by_type, locator)))
+            element = wait.until(EC.visibility_of_element_located((by_type, locator[1])))
         except:
             self.screenshots(f"Element not visible", allure_name="Element not visible")
             self.print_log(
-                f"Element not appeared on the web page with locator: '{locator}' - locator_type: '{locator_type}' within '{timeout}' seconds",
+                f"Element not appeared on the web page with locator: '{locator[1]}' - locator_type: '{locator[0]}' within '{timeout}' seconds",
                 log_type="error")
         assert element is not None
 
-    def wait_for_element_invisibility(self, locator, locator_type="xpath", timeout=10, poll_frequency=1):
+    def wait_for_element_invisibility(self, locator, timeout=10, poll_frequency=1):
         """
         This will wait for requested element to be invisible on screen for
         defined time with interval check of 1 sec as default
         :param locator:
-        :param locator_type:
         :param timeout:
         :param poll_frequency:
         :return:
         """
         element = None
+        locator = locator.split(":")
         try:
-            by_type = self.get_by_type(locator_type)
+            by_type = self.get_by_type(locator[0])
             wait = WebDriverWait(self.driver, timeout=timeout,
                                  poll_frequency=poll_frequency)
             element = wait.until(EC.invisibility_of_element((by_type, locator)))
         except:
             self.screenshots(f"Element is visible", allure_name="Element is visible")
             self.print_log(
-                f"Element is still visible on the web page with locator: '{locator}' - locator_type: '{locator_type}' within '{timeout}' seconds",
+                f"Element is still visible on the web page with locator: '{locator[1]}' - locator_type: '{locator[0]}' within '{timeout}' seconds",
                 log_type="error")
         assert element is True
 
-    def click_element(self, locator, locator_type="xpath"):
+    def click_element(self, locator):
         """
-        This will click on request element
+        This will click on requested element
         :param locator:
-        :param locator_type:
         :return:
         """
         element = None
         try:
             if locator:
-                element = self.get_element(locator, locator_type)
+                element = self.get_element(locator)
                 assert element is not None
                 element.click()
         except:
-            self.print_log(f"Can not click on the element with locator: '{locator}' - locator_type: '{locator_type}'")
+            self.print_log(f"Can not click on the element with locator: '{locator}'")
             print_stack()
             assert element is not None
 
-    def send_text(self, data, locator, locator_type="xpath"):
+    def send_text(self, data, locator):
         """
         This will send/set the provided data in the requested text field on screen
         :param data:
         :param locator:
-        :param locator_type:
         :return:
         """
         element = None
         try:
             if locator:
-                element = self.get_element(locator, locator_type)
+                element = self.get_element(locator)
                 assert element is not None
                 element.clear()
                 element.send_keys(data)
         except:
-            self.print_log(f"Can not click on the element with locator: '{locator}' - locator_type: '{locator_type}'")
+            self.print_log(f"Can not click on the element with locator: '{locator}'")
             print_stack()
             assert element is not None

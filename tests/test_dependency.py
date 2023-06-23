@@ -11,13 +11,13 @@ class Test(unittest.TestCase):
         self.fun = FunctionalPageFunctions(self.driver)
 
     def test_critical(self):
-        self.fun.InputNumbers()
+        self.fun.input_numbers()
         assert 2 == 3
 
     @pytest.mark.depends(on=['test_critical'])
     def test_normal(self):
-        self.fun.InputNumbers()
+        self.fun.input_numbers()
 
     @pytest.mark.depends(on=['test_normal'])
     def test_blocker(self):
-        self.fun.InputNumbers()
+        self.fun.input_numbers()
