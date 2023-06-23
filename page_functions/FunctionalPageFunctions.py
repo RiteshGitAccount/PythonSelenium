@@ -9,13 +9,12 @@ class FunctionalPageFunctions(BaseClass):
         self.driver = driver
         self.fun_obj = FunctionalPageObjects()
 
-    def InputNumbers(self):
+    def input_numbers(self):
         self.print_log("demo log",log_type="error")
         self.print_log("demo log",log_type="info")
-        self.print_log("demo log",log_type="warn")
         self.print_log("demo log",log_type="debug")
-        self.wait_for_element_visibility("Inputs", locator_type="link", timeout=5, poll_frequency=1)
-        self.click_element("Inputs", locator_type="link")
+        self.wait_for_element_visibility("link:Inputs", timeout=5, poll_frequency=1)
+        self.click_element("link:Inputs")
         # self.wait_for_element_invisibility("Inputs", locator_type="link")
         # self.send_text("5", "//input[@type='number']")
 

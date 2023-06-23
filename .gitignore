@@ -4,3 +4,6 @@ allure_report
 *__pycache__
 automation.log
 screenshots
+/execute.bat
+reports
+venv
