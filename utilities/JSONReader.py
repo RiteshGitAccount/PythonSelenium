@@ -8,7 +8,7 @@ from utilities.BaseClass import BaseClass
 class JSON_Reader(BaseClass):
 
     @staticmethod
-    def get_data_from_json(self, emailcontent, filepath):
+    def get_data_from_json(emailcontent, filepath):
         """
         This method is used to read details from JSON file. JSON file contains project specific data.
         :param self:

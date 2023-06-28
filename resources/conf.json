@@ -6,6 +6,12 @@
   "uat":  {
     "url": "http://the-internet.herokuapp.com/",
     "asd": "asd"
+  },
+
+  "email" : {
+  "Subject": "Python Automation Execution Results",
+  "To": "rutu.shetty@neudesic.com, ritesh",
+  "Body": "Hi, \n\nPlease find attached the test execution results. \n\nThank You."
   }
 }
 

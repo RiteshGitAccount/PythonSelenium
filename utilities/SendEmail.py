@@ -32,8 +32,8 @@ class Test_SendEmail(BaseClass):
         mailItem.Body = JSON_Reader.get_data_from_json(self, "Body")
         mailItem.To = JSON_Reader.get_data_from_json(self, "To")
 
-        print(BaseClass.getFilePath(self, "\\allure_report\\report.html"))
-        mailItem.Attachments.Add(BaseClass.getFilePath(self, "\\allure_report\\report.html"))
+        #print(BaseClass.getFilePath(self, "\\allure_report\\report.html"))
+        #mailItem.Attachments.Add(BaseClass.getFilePath(self, "\\allure_report\\report.html"))
 
         mailItem.Display()
         # mailItem.Save()
