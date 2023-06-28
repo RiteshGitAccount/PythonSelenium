@@ -36,6 +36,8 @@ def one_time_setup(request):
         os.path.join(os.path.dirname(__file__), "..", 'resources/environment.properties'))
     BaseClass.conf_file_path = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "..", 'resources/conf.json'))
+    BaseClass.js_script_path = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "..", 'js_scripts//'))
 
     BaseClass.env_data = load_properties_file_data(BaseClass.env_file_path)
     BaseClass.conf_data = load_json_file_data(BaseClass.conf_file_path)

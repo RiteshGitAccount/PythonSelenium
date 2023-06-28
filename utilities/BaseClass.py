@@ -26,7 +26,7 @@ class BaseClass:
     env_data = None  # This variable is used for storing environment.properties file details in dictionary
     conf_file_path = None  # This variable is used for storing the config.json file path
     conf_data = None  # This variable is used for storing config.json file details in dictionary
-
+    js_script_path = None
     def __init__(self, driver):
         self.driver = driver
 
@@ -405,9 +405,12 @@ class BaseClass:
         :param target:
         :return:
         """
-        file = cwd.split("tests")
-        fname = file[0] + "Resources\\drag_and_drop_helper.js"
-        print(fname)
+        #cwd = os.getcwd()
+        #file = cwd.split("tests")
+        #fname = file[0] + "js_scripts\\drag_and_drop_helper.js"
+
+        fname = self.js_script_path+"\\drag_and_drop_helper.js"
+        self.print_log(fname)
         with open(fname, 'r') as js_file:
             line = js_file.readline()
             script = ''
@@ -720,19 +723,6 @@ class BaseClass:
             self.print_log(f"Cannot de-select drop down values for locator: {locator} - locator_type: {locator_type}")
             print_stack()
             assert element is not None
-
-    # Miscellaneous
-
-    def getFilePath(self, filepath):
-        """
-        This function is used to determine the location of the current working directory.
-        :param filepath:
-        :return: Returns the file path of the 'tests' folder.
-        """
-        cwd = os.getcwd()
-        file = cwd.split("tests")
-        fname = file[0] + filepath      #"\\TestData\\EmailDetails.json"
-        return fname
 
 
 
