@@ -18,8 +18,8 @@ def get_chrome_driver():
     options.page_load_strategy = 'normal'
     # options.add_argument("--headless")  # Run in headless mode
     options.add_argument("--incognito")  # Run in incognito mode
-    # Remove "Chrome is being controlled by automated test software" info bar
-    options.add_experimental_option("excludeSwitches", ['enable-automation'])
+    # Remove "Chrome is being controlled by automated test software" info bar and some console logs disabled
+    options.add_experimental_option("excludeSwitches", ['enable-automation', "enable-logging"])
 
     driver = webdriver.Chrome(options=options,
                               service=ChromeService(ChromeDriverManager().install()))
