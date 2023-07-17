@@ -1,5 +1,6 @@
 import time
 
+from page_objects.FunctionalPageObjects import FunctionalPageObjects
 from utilities.BaseClass import BaseClass
 
 
@@ -10,21 +11,23 @@ class amazon_productpage(BaseClass):
         self.driver = driver
 
     def change_quantity(self):
-        self.click_element("id:add-to-cart-button")
-        self.wait_for_element_visibility("xpath://*[@id='attach-sidesheet-view-cart-button']/span/input")
-        self.click_element("xpath://*[@id='attach-sidesheet-view-cart-button']/span/input")
+        self.click_element(FunctionalPageObjects.add_to_cart)
+        self.wait_for_element_visibility(FunctionalPageObjects.cart_button)
+        self.click_element(FunctionalPageObjects.cart_button)
         time.sleep(10)
-        self.wait_for_element_visibility("xpath://select[@name='quantity']")
-        self.select_dropdown_by_value("3", "xpath://select[@name='quantity']")
+        self.wait_for_element_visibility(FunctionalPageObjects.quantity)
+        self.select_dropdown_by_value("3", FunctionalPageObjects.quantity)
         # time.sleep(5)
-        self.wait_for_element_visibility("xpath://*[@id='a-autoid-9']/span/input")
-        self.click_element("xpath://*[@id='a-autoid-9']/span/input")
+        self.wait_for_element_visibility(FunctionalPageObjects.second_object_recent_history)
+        self.click_element(FunctionalPageObjects.second_object_recent_history)
         # time.sleep(5)
-        self.wait_for_element_visibility("xpath://*[@id='sw-gtc']/span/a")
-        self.click_element("xpath://*[@id='sw-gtc']/span/a")
+        self.wait_for_element_visibility(FunctionalPageObjects.goto_cart)
+        self.click_element(FunctionalPageObjects.goto_cart)
+
     def remove_first_product_from_cart(self):
-        self.wait_for_element_visibility("xpath://div[@data-name='Active Items']/div[3]/div[4]/div/div[2]/div[1]/span[2]/span/input")
-        self.click_element("xpath://div[@data-name='Active Items']/div[3]/div[4]/div/div[2]/div[1]/span[2]/span/input")
+        self.wait_for_element_visibility(FunctionalPageObjects.first_product_in_cart)
+        self.click_element(FunctionalPageObjects.first_product_in_cart)
+
     def proceed_to_checkout(self):
-        self.wait_for_element_visibility("xpath://*[@value='Proceed to checkout']")
-        self.click_element("xpath://*[@value='Proceed to checkout']")
+        self.wait_for_element_visibility(FunctionalPageObjects.proceed_to_checkout)
+        self.click_element(FunctionalPageObjects.proceed_to_checkout)

@@ -1,6 +1,7 @@
 import time
 
 from page_functions.amazon_productpage import amazon_productpage
+from page_objects.FunctionalPageObjects import FunctionalPageObjects
 from utilities.BaseClass import BaseClass
 
 
@@ -11,7 +12,7 @@ class amazon_searchresult(BaseClass):
         self.driver = driver
 
     def select_Product(self):
-        self.click_element("xpath://*[text()='Apple iPhone 14 (128 GB) - Purple']")
+        self.click_element(FunctionalPageObjects.product_name)
         print("phone clicked")
         time.sleep(10)
         self.switch_to_window(1)
