@@ -4,8 +4,7 @@ import unittest
 import allure
 import pytest
 
-from page_functions import amazon_searchresultpage
-from page_functions.amazon_homepage import amazon_homepage
+from page_functions.amazon_page_functions.amazon_homepage import amazon_homepage
 from utilities.BaseClass import BaseClass
 
 

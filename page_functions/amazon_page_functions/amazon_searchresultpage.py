@@ -1,7 +1,7 @@
 import time
 
-from page_functions.amazon_productpage import amazon_productpage
-from page_objects.FunctionalPageObjects import FunctionalPageObjects
+from page_functions.amazon_page_functions.amazon_productpage import amazon_productpage
+from page_objects.amazon_objects import amazon_searchresultpage_objects
 from utilities.BaseClass import BaseClass
 
 
@@ -12,7 +12,7 @@ class amazon_searchresult(BaseClass):
         self.driver = driver
 
     def select_Product(self):
-        self.click_element(FunctionalPageObjects.product_name)
+        self.click_element(amazon_searchresultpage_objects.product_name)
         print("phone clicked")
         time.sleep(10)
         self.switch_to_window(1)
