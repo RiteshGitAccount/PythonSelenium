@@ -27,6 +27,7 @@ class BaseClass:
     env_data = None  # This variable is used for storing environment.properties file details in dictionary
     conf_file_path = None  # This variable is used for storing the config.json file path
     conf_data = None  # This variable is used for storing config.json file details in dictionary
+    js_script_path = None  # This variable is used for storing js scripts folder path
 
     def __init__(self, driver):
         self.driver = driver
@@ -235,6 +236,487 @@ class BaseClass:
                 element.send_keys(data)
         except:
             self.print_log(f"Can not send data {data} to the element with locator: '{locator}'", log_type="error")
+            print_stack()
+            assert element is not None
+
+    # Mouse and Keyboard Actions
+    def verify_text(self, locator, data):
+        """
+        This function is used to verify the text/statement displayed on the screen and verifies if the value is matching.
+        If not it will return an error.
+        :param data:
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                assert element.text == data
+        except:
+            self.print_log(
+                f"Cannot find text / attribute (value) of element with locator: {locator} ")
+            print_stack()
+            assert element is not None
+
+    def double_click(self, locator):
+        """
+        This function is used to double-click on a given web element in the screen.
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                action = ActionChains(self.driver)
+                action.double_click(element).perform()
+        except:
+            self.print_log(f"Cannot double click on element with locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def context_click(self, locator):
+        """
+        This function is used to right-click on a given web element in the screen.
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                action = ActionChains(self.driver)
+                action.context_click(element).perform()
+        except:
+            self.print_log(f"Cannot right click on element with locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def move_to_element(self, locator):
+        """
+        This function is used to move to an element on the screen.
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                action = ActionChains(self.driver)
+                action.move_to_element(element).perform()
+        except:
+            self.print_log(f"Cannot move to element with locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def move_to_element_with_offset(self, x_offset, y_offset, locator):
+        """
+        This function is used to shift the mouse pointer(from a web element) as per the offset values provided in the function.
+        :param x_offset:
+        :param y_offset:
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                action = ActionChains(self.driver)
+                action.move_to_element_with_offset(element, x_offset, y_offset).perform()
+        except:
+            self.print_log(
+                f"Cannot move to element with offset values :{x_offset} , {y_offset} locator: {locator} ")
+            print_stack()
+            assert element is not None
+
+    def hover(self, locator):
+        """
+        This function is used to hover on a given web element.
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                action = ActionChains(self.driver)
+                action.move_to_element(element).perform()
+        except:
+            self.print_log(f"Cannot hover on element with locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def drag_and_drop(self, source_locator, target_locator):
+        """
+        This function is used to drag web elements from source location and drop it to the target location.
+        :param source_locator:
+        :param target_locator:
+        :return:
+        """
+        source_element = None
+        target_element = None
+
+        try:
+            if source_locator:
+                source_element = self.get_element(source_locator)
+                target_element = self.get_element(target_locator)
+                assert source_element is not None
+                assert target_element is not None
+                action = ActionChains(self.driver)
+                action.drag_and_drop(source_element, target_element).perform()
+
+        except:
+            self.print_log(
+                f"Cannot drag element from locator: {source_locator} ")
+            print_stack()
+            assert source_element is not None
+
+    def drag_and_drop_by_offset(self, x_offset, y_offset, locator):
+        """
+        This function is used drag an element from source location and drop it as per the offset provided in the function.
+        :param x_offset:
+        :param y_offset:
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                action = ActionChains(self.driver)
+                action.drag_and_drop_by_offset(element, x_offset, y_offset).perform()
+        except:
+            self.print_log(f"Cannot drag and drop with offset for locator: {locator} ")
+            print_stack()
+            assert element is not None
+
+    def drag_and_drop_javascript(self, source, target):  # source & target given as class name in SS - eg: '#coulmn-a'
+        """
+        This function uses javascript for drag and drop of web elements. This is particularly useful when some webpages
+        like HTML5 do not support drag and drop functionality using selenium web driver.
+        Note - Need to provide the source and target locators in CSS format for class names eg: '#column-a"
+        The javascript file is placed under 'resource' folder, file name is 'drag_and_drop_helper.js'
+        :param source:
+        :param target:
+        :return:
+        """
+
+        fname = self.js_script_path + "\\drag_and_drop_helper.js"
+        self.print_log(fname)
+        with open(fname, 'r') as js_file:
+            line = js_file.readline()
+            script = ''
+            while line:
+                script += line
+                line = js_file.readline()
+
+        self.driver.execute_script(script + "$('" + source + "').simulateDragDrop({ dropTarget: '" + target + "'});")
+        time.sleep(2)
+
+    def horizontal_scroll(self, x_offset, y_offset, locator):
+        """
+        This function is used to scroll in the horizontal direction - useful when there are text boxes in UI.
+        :param x_offset:
+        :param y_offset:
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                action = ActionChains(self.driver)
+                action.click_and_hold(element).move_by_offset(x_offset, y_offset).release().perform()
+        except:
+            self.print_log(
+                f"Cannot scroll horizontally for element with locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def is_element_displayed(self, locator):
+        """
+        This function determines whether a given web element is displayed on the screen.
+        It returns value as true or false based on element display.
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                return element.is_displayed()
+        except:
+            self.print_log(f"Element not displayed - locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def is_element_selected(self, locator):
+        """
+        This function determines whether a given web element is selected on the screen.
+        It returns value as true or false based on element selection.
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                return element.is_selected()
+        except:
+            self.print_log(f"Element/Check box not selected - locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    # Browser interactions
+    def maximize_browser(self):
+        """
+        This function is used to maximise the browser window.
+        :return:
+        """
+        self.driver.maximize_window()
+
+    def get_title(self):
+        """
+        This function returns the title of the web browser
+        :return:
+        """
+        return self.driver.title
+
+    def minimize_browser(self):
+        """
+        This function is used to minimize the browser window
+        :return:
+        """
+        self.driver.minimize_window()
+
+    def get_url(self):
+        """
+        This function returns the URL of the web page.
+        :return:
+        """
+        return self.driver.current_url
+
+    def resize_browser(self, x, y):
+        """
+        This function is used to resize the browser as per the dimensions mentioned in the function.
+        :param x:
+        :param y:
+        :return:
+        """
+
+        self.driver.set_window_size(x, y)
+
+    def delete_all_cookies(self):
+        """
+        This function is used to delete all browser cookies.
+        :return:
+        """
+        self.driver.delete_all_cookies()
+
+    # Iframes
+    def switch_to_iframe(self, locator):
+        """
+        This function  is used to switch to an iframe.
+        :param locator:
+        :return:
+        """
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                self.driver.switch_to.frame(element)
+        except:
+            self.print_log(f"Cannot switch to frame with locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def switch_to_default_content(self):
+        """
+        This function is used to switch back to the webpage from an iframe.
+        :return:
+        """
+        # element = None
+        try:
+            # if locator:
+            # element = self.get_element(locator, locator_type)
+            # assert element is not None
+            self.driver.switch_to.default_content()
+        except:
+            self.print_log(f"Cannot switch back to default window from iFrame")
+            print_stack()
+
+    # Alerts
+    def alert_accept(self):
+        """
+        This function is used to accept the alert i.e. click on OK/Yes button of the alert.
+        :return:
+        """
+        try:
+            alert = self.driver.switch_to.alert
+            alert.accept()
+        except:
+            self.print_log(f"Not able to accept alert")
+            print_stack()
+
+    def alert_dismiss(self):
+        """
+        This function is used to dismiss an alert i.e. click on Cancel/No button of the alert.
+        :return:
+        """
+        try:
+            alert = self.driver.switch_to.alert
+            alert.dismiss()
+        except:
+            self.print_log(f"Not able to dismiss alert")
+            print_stack()
+
+    def alert_text(self):
+        """
+        This function is used to retrieve the text content of the alert and return the same.
+        :return:
+        """
+        try:
+            alert = self.driver.switch_to.alert
+            text = alert.text
+            return text
+        except:
+            self.print_log(f"Not able retrieve text from the alert")
+            print_stack()
+
+    # Window Handles
+
+    def get_current_window_handle(self):
+        """
+        This function returns the current window handle.
+        :return:
+        """
+        try:
+            return self.driver.current_window_handle
+        except:
+            self.print_log(f"Not able to retrieve current window handle")
+            print_stack()
+
+    def get_all_window_handles(self):
+        """
+        This function returns all the window handles.
+        :return:
+        """
+        try:
+            handles = self.driver.window_handles
+            return handles
+        except:
+            self.print_log(f"Not able to retrieve current window handle")
+            print_stack()
+
+    def switch_to_window(self, handle_identifier):
+        """
+        This function is used to switch a different window.
+        :param handle_identifier:
+        :return:
+        """
+        try:
+            parent_handle = self.get_current_window_handle()
+            self.driver.switch_to.window(self.driver.window_handles[handle_identifier])
+
+        except:
+            self.print_log(f"Not able to switch to window handle")
+            print_stack()
+
+    # Drop downs
+
+    def select_dropdown_by_index(self, data, locator):
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                sel = Select(element)
+                sel.select_by_index(data)
+
+        except:
+            self.print_log(f"Cannot select drop down by index for locator: {locator} ")
+            print_stack()
+            assert element is not None
+
+    def select_dropdown_by_value(self, data, locator):
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                sel = Select(element)
+                sel.select_by_value(data)
+        except:
+            self.print_log(
+                f"Cannot select drop down values based on value for locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def select_dropdown_by_visible_text(self, data, locator):
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                sel = Select(element)
+                sel.select_by_visible_text(data)
+
+        except:
+            self.print_log(f"Cannot select drop down values based on visible text for locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def deselect_dropdown_by_index(self, data, locator):
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                sel = Select(element)
+                sel.deselect_by_index(data)
+        except:
+            self.print_log(
+                f"Cannot de-select drop down values based on index for locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def deselect_dropdown_by_visible_text(self, data, locator):
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                sel = Select(element)
+                sel.deselect_by_visible_text(data)
+
+        except:
+            self.print_log(
+                f"Cannot de-select drop down values based on visible text for locator: {locator}")
+            print_stack()
+            assert element is not None
+
+    def deselect_dropdown_by_value(self, data, locator):
+        element = None
+        try:
+            if locator:
+                element = self.get_element(locator)
+                assert element is not None
+                sel = Select(element)
+                sel.deselect_by_value(data)
+        except:
+            self.print_log(f"Cannot de-select drop down values for locator: {locator}")
             print_stack()
             assert element is not None
 

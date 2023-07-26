@@ -3,7 +3,6 @@ import os
 import platform
 import pytest
 
-from utilities import ExcelReader
 from utilities.CustomeLogger import custom_logger
 
 from utilities.BaseClass import BaseClass
@@ -38,6 +37,8 @@ def one_time_setup(request):
 
     BaseClass.conf_file_path = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "..", 'resources/conf.json'))
+    BaseClass.js_script_path = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "..", 'js_scripts//'))
 
     BaseClass.conf_data = load_json_file_data(BaseClass.conf_file_path)
 
@@ -89,9 +90,8 @@ def setup(one_time_setup, request):
         case _:
             log.info("incorrect browser specified. please check again")
 
-    driver.get(BaseClass.env_data["url3"])
+    # driver.get(BaseClass.env_data["url3"])
     # driver.get(BaseClass.conf_data['url'])
-    
     # file_path = BaseClass.data_excel_file_path
     # sheet_name = BaseClass.conf_data['excel_details']['sheet_name']
     # driver.get(ExcelReader.read_excel_data(file_path,sheet_name,"A2"))

@@ -84,3 +84,4 @@ class FunctionalPageObjects:
     source = "#column-a"
     target = "#column-b"
     check = "//*[@id='column-a']/header"
+
