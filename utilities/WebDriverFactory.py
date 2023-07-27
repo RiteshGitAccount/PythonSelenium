@@ -21,8 +21,9 @@ def get_chrome_driver():
     # Remove "Chrome is being controlled by automated test software" info bar and some console logs disabled
     options.add_experimental_option("excludeSwitches", ['enable-automation', "enable-logging"])
 
-    driver = webdriver.Chrome(options=options,
-                              service=ChromeService(ChromeDriverManager().install()))
+    driver = webdriver.Chrome(options=options)
+    # driver = webdriver.Chrome(options=options,
+    #                           service=ChromeService(ChromeDriverManager().install()))
     driver.maximize_window()
     return driver
 

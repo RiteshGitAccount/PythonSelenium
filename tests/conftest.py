@@ -91,7 +91,7 @@ def setup(one_time_setup, request):
             log.info("incorrect browser specified. please check again")
 
     # driver.get(BaseClass.env_data["url3"])
-    # driver.get(BaseClass.conf_data['url'])
+    driver.get(BaseClass.conf_data['url'])
     # file_path = BaseClass.data_excel_file_path
     # sheet_name = BaseClass.conf_data['excel_details']['sheet_name']
     # driver.get(ExcelReader.read_excel_data(file_path,sheet_name,"A2"))

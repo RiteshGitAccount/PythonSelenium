@@ -1,4 +1,3 @@
-
 add_to_cart = "id:add-to-cart-button"
 cart_button = "xpath://*[@id='attach-sidesheet-view-cart-button']/span/input"
 quantity = "xpath://select[@name='quantity']"

@@ -1,20 +1,20 @@
 import time
 
-from page_functions.amazon.amazon_searchresultpage import amazon_searchresult
-from page_objects.amazon_objects import amazon_homepage_objects
+from page_functions.amazon.SearchResultPageFunctions import SearchResultPageFunctions
+from page_objects.amazon import HomePageObjects
 from utilities.BaseClass import BaseClass
 
 
-class amazon_homepage(BaseClass):
+class HomePageFunctions(BaseClass):
 
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
 
     def homepage_search(self, search_text):
-        self.click_element(amazon_homepage_objects.homepage_searchbox)
-        self.send_text("iphone", amazon_homepage_objects.homepage_searchbox)
-        self.click_element(amazon_homepage_objects.homepage_findbutton)
+        self.click_element(HomePageObjects.homepage_search_box)
+        self.send_text(HomePageObjects.homepage_search_box, search_text)
+        self.click_element(HomePageObjects.homepage_find_button)
         time.sleep(5)
-        amazon_search_result = amazon_searchresult(self.driver)
+        amazon_search_result = SearchResultPageFunctions(self.driver)
         return amazon_search_result

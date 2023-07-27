@@ -1,11 +1,13 @@
 import time
 import unittest
+
+import allure
 import pytest
 
 from page_functions.flipkart.HomePageFunctions import HomePageFunctions
 from utilities.BaseClass import BaseClass
 
-
+@allure.epic("Flipkart")
 @pytest.mark.usefixtures("setup")
 class FlipkartTest(unittest.TestCase):
     @pytest.fixture(autouse=True)
@@ -13,7 +15,12 @@ class FlipkartTest(unittest.TestCase):
         self.fun = HomePageFunctions(self.driver)
         self.base = BaseClass(self.driver)
 
+    @allure.title("Flipkart demo")
+    @allure.tag("Flipkart demo")
+    @allure.description("To demo amazon workflow using python automation framework")
     def test_add_to_cart(self):
+        self.base.load_url(self.base.env_data["url3"])
+
         product = self.base.read_excel_data("A1")
         self.fun.enter_login_username(login_user_detail=9191919191)
         time.sleep(2)
