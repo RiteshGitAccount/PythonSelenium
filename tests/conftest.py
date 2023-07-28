@@ -2,6 +2,7 @@ import logging
 import os
 import platform
 import pytest
+
 from utilities.CustomeLogger import custom_logger
 
 from utilities.BaseClass import BaseClass
@@ -33,17 +34,21 @@ def one_time_setup(request):
     :param request:
     :return:
     """
-    BaseClass.data_excel_file_path = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "..", "resources/data.xlsx"))
-    BaseClass.env_file_path = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "..", 'resources/environment.properties'))
+
     BaseClass.conf_file_path = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "..", 'resources/conf.json'))
     BaseClass.js_script_path = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "..", 'js_scripts//'))
 
-    BaseClass.env_data = load_properties_file_data(BaseClass.env_file_path)
     BaseClass.conf_data = load_json_file_data(BaseClass.conf_file_path)
+
+    BaseClass.data_excel_file_path = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "..", f"resources/{BaseClass.conf_data['excel_details']['file_name']}"))
+    BaseClass.env_file_path = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "..", f"resources/{BaseClass.conf_data['env_file']['file_name']}"))
+
+    BaseClass.data_excel_sheet_name = BaseClass.conf_data['excel_details']['sheet_name']
+    BaseClass.env_data = load_properties_file_data(BaseClass.env_file_path)
 
     yield
     allure_dir = request.config.getoption(ALLUREDIR_OPTION)
@@ -85,8 +90,11 @@ def setup(one_time_setup, request):
         case _:
             log.info("incorrect browser specified. please check again")
 
-    #driver.get(BaseClass.env_data["url"])
-    # driver.get(BaseClass.conf_data['sit']['url'])
+    # driver.get(BaseClass.env_data["url3"])
+    driver.get(BaseClass.conf_data['url'])
+    # file_path = BaseClass.data_excel_file_path
+    # sheet_name = BaseClass.conf_data['excel_details']['sheet_name']
+    # driver.get(ExcelReader.read_excel_data(file_path,sheet_name,"A2"))
 
     if request.cls is not None:
         request.cls.driver = driver

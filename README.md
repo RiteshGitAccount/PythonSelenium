@@ -69,7 +69,7 @@ stakeholders.
     - --allure-stories <story_name>
 - To re-run only the priory test cases, add flag :
     - -m "p1"
-- Framework can also be integrated with CI tools like Jenkins to run the test cases in cloud.
+- Framework can also be integrated with CI tools like Jenkins, Cloud DevOps tools.
 
 # References
 - For allure reporting and framework details-> https://docs.qameta.io/allure/

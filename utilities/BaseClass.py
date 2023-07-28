@@ -6,7 +6,7 @@ from traceback import print_stack
 import allure
 from allure_commons.types import AttachmentType
 from selenium.common.exceptions import *
-from selenium.webdriver import ActionChains
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
@@ -22,10 +22,12 @@ class BaseClass:
     """
     log = custom_logger(logging.DEBUG)
     data_excel_file_path = None  # This variable is used for storing the Excel file path
+    data_excel_sheet_name = None  # This variable is used for storing the Excel sheet name
     env_file_path = None  # This variable is used for storing the environment.properties file path
     env_data = None  # This variable is used for storing environment.properties file details in dictionary
     conf_file_path = None  # This variable is used for storing the config.json file path
     conf_data = None  # This variable is used for storing config.json file details in dictionary
+    js_script_path = None  # This variable is used for storing js scripts folder path
 
     def __init__(self, driver):
         self.driver = driver
@@ -38,16 +40,18 @@ class BaseClass:
         """
         self.driver.get(urls)
 
-    def read_excel_data(self, sheet_name, col_row):
+    def read_excel_data(self, col_row, sheet_name=""):
         """
         This will return the requested Excel cell value from provided sheet name
         :param sheet_name:
         :param col_row:
         :return:
         """
+        if sheet_name == "":
+            return read_excel_data(self.data_excel_file_path, self.data_excel_sheet_name, col_row)
         return read_excel_data(self.data_excel_file_path, sheet_name, col_row)
 
-    def write_excel_data(self, sheet_name, col_row, data):
+    def write_excel_data(self, col_row, data, sheet_name=""):
         """
         This will write the data to the requested Excel cell in provided sheet
         :param sheet_name:
@@ -55,6 +59,8 @@ class BaseClass:
         :param data:
         :return:
         """
+        if sheet_name == "":
+            return write_excel_data(self.data_excel_file_path, self.data_excel_sheet_name, col_row, data)
         return write_excel_data(self.data_excel_file_path, sheet_name, col_row, data)
 
     def print_log(self, print_statement, log_type="info"):
@@ -100,7 +106,6 @@ class BaseClass:
             print_stack()
 
     def get_by_type(self, locator_type):
-
         locator_type = locator_type.lower()
         if locator_type == "id":
             return By.ID
@@ -129,18 +134,20 @@ class BaseClass:
         :return:
         """
         element = None
-        locator = locator.split(":")
+        locator = locator.split(":", 1)
+        locator_type = locator[0]
+        locator_value = locator[1]
         try:
-            by_type = self.get_by_type(locator[0])
-            element = self.driver.find_element(by_type, locator[1])
+            by_type = self.get_by_type(locator_type)
+            element = self.driver.find_element(by_type, locator_value)
         except:
             self.screenshots(f"Element issue", allure_name="Element issue")
-            self.print_log(f"Element not fount with locator: '{locator[1]}' and locator_type: '{locator[0]}'",
+            self.print_log(f"Element not fount with locator: '{locator_value}' and locator_type: '{locator_type}'",
                            log_type="error")
         assert element is not None
         return element
 
-    def wait_for_element_visibility(self, locator, timeout=10, poll_frequency=1):
+    def wait_for_element_visibility(self, locator, timeout=5, poll_frequency=1):
         """
         This will wait for requested element to be visible on screen for
         defined time with interval check of 1 sec as default
@@ -150,22 +157,26 @@ class BaseClass:
         :return:
         """
         element = None
-        locator = locator.split(":")
+        locator = locator.split(":", 1)
+        locator_type = locator[0]
+        locator_value = locator[1]
         try:
-            by_type = self.get_by_type(locator[0])
+            by_type = self.get_by_type(locator_type)
             wait = WebDriverWait(self.driver, timeout=timeout,
                                  poll_frequency=poll_frequency,
                                  ignored_exceptions=[NoSuchElementException, ElementNotVisibleException,
                                                      ElementNotSelectableException])
-            element = wait.until(EC.visibility_of_element_located((by_type, locator[1])))
+            element = wait.until(EC.visibility_of_element_located((by_type, locator_value)))
         except:
             self.screenshots(f"Element not visible", allure_name="Element not visible")
             self.print_log(
-                f"Element not appeared on the web page with locator: '{locator[1]}' - locator_type: '{locator[0]}' within '{timeout}' seconds",
+                f"Element not appeared on the web page with locator: '{locator_value}' - locator_type: '{locator_type}' within '{timeout}' seconds",
                 log_type="error")
-        assert element is not None
+        if element is not None:
+            return True
+        return False
 
-    def wait_for_element_invisibility(self, locator, timeout=10, poll_frequency=1):
+    def wait_for_element_invisibility(self, locator, timeout=5, poll_frequency=1):
         """
         This will wait for requested element to be invisible on screen for
         defined time with interval check of 1 sec as default
@@ -175,18 +186,22 @@ class BaseClass:
         :return:
         """
         element = None
-        locator = locator.split(":")
+        locator = locator.split(":", 1)
+        locator_type = locator[0]
+        locator_value = locator[1]
         try:
-            by_type = self.get_by_type(locator[0])
+            by_type = self.get_by_type(locator_type)
             wait = WebDriverWait(self.driver, timeout=timeout,
                                  poll_frequency=poll_frequency)
-            element = wait.until(EC.invisibility_of_element((by_type, locator)))
+            element = wait.until(EC.invisibility_of_element((by_type, locator_value)))
         except:
             self.screenshots(f"Element is visible", allure_name="Element is visible")
             self.print_log(
-                f"Element is still visible on the web page with locator: '{locator[1]}' - locator_type: '{locator[0]}' within '{timeout}' seconds",
+                f"Element is still visible on the web page with locator: '{locator_value}' - locator_type: '{locator_type}' within '{timeout}' seconds",
                 log_type="error")
-        assert element is True
+        if element is True:
+            return True
+        return False
 
     def click_element(self, locator):
         """
@@ -201,11 +216,11 @@ class BaseClass:
                 assert element is not None
                 element.click()
         except:
-            self.print_log(f"Can not click on the element with locator: '{locator}'")
+            self.print_log(f"Can not click on the element with locator: '{locator}'", log_type="error")
             print_stack()
             assert element is not None
 
-    def send_text(self, data, locator):
+    def send_text(self, locator, data):
         """
         This will send/set the provided data in the requested text field on screen
         :param data:
@@ -220,12 +235,12 @@ class BaseClass:
                 element.clear()
                 element.send_keys(data)
         except:
-            self.print_log(f"Can not click on the element with locator: '{locator}'")
+            self.print_log(f"Can not send data {data} to the element with locator: '{locator}'", log_type="error")
             print_stack()
             assert element is not None
 
     # Mouse and Keyboard Actions
-    def verify_text(self, data, locator):
+    def verify_text(self, locator, data):
         """
         This function is used to verify the text/statement displayed on the screen and verifies if the value is matching.
         If not it will return an error.
@@ -393,9 +408,6 @@ class BaseClass:
         :param target:
         :return:
         """
-        # cwd = os.getcwd()
-        # file = cwd.split("tests")
-        # fname = file[0] + "js_scripts\\drag_and_drop_helper.js"
 
         fname = self.js_script_path + "\\drag_and_drop_helper.js"
         self.print_log(fname)
@@ -553,7 +565,7 @@ class BaseClass:
         """
         try:
             alert = self.driver.switch_to.alert
-            alert.accept
+            alert.accept()
         except:
             self.print_log(f"Not able to accept alert")
             print_stack()
@@ -565,7 +577,7 @@ class BaseClass:
         """
         try:
             alert = self.driver.switch_to.alert
-            alert.dismiss
+            alert.dismiss()
         except:
             self.print_log(f"Not able to dismiss alert")
             print_stack()
@@ -707,3 +719,9 @@ class BaseClass:
             self.print_log(f"Cannot de-select drop down values for locator: {locator}")
             print_stack()
             assert element is not None
+
+    def hit_enter(self):
+        ActionChains(self.driver).send_keys(Keys.ENTER).perform()
+
+    def close_current_tab(self):
+        self.driver.close()

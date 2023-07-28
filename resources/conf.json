@@ -1,11 +1,11 @@
 {
-  "sit": {
-    "url": "http://the-internet.herokuapp.com/",
-    "asd": "asd"
+  "url": "http://the-internet.herokuapp.com/",
+  "excel_details": {
+    "file_name": "data.xlsx",
+    "sheet_name": "flipkart"
   },
-  "uat":  {
-    "url": "http://the-internet.herokuapp.com/",
-    "asd": "asd"
+  "env_file": {
+    "file_name": "environment.properties"
   },
   "email": {
     "Subject": "Python Automation Execution Results",
